@@ -3,6 +3,7 @@ class User {
     private $id;
     private $name;
     private $password;
+    private $coins;
     private $lastonline;
     private $serie;
     
@@ -15,6 +16,7 @@ class User {
             $this->id = $res['id'];
             $this->name = $res['name'];
             $this->password = $res['password'];
+            $this->coins = $res['coins'];
             $this->lastonline = new DateTime($res['lastonline']);
             $this->serie = $res['serie'];
         }
@@ -26,6 +28,7 @@ class User {
             'id' => $this->id,
             'name' => $this->name,
             'password' => $this->password,
+            'coins' => $this->coins,
             'lastonline' => $this->lastonline->format("Y-m-d H:i:s"),
             'serie' => $this->serie,
         );
@@ -53,6 +56,10 @@ class User {
         $this->password = $password;
         return $this;
     }
+    public function setCoins($coins){
+        $this->coins = $coins;
+        return $this;
+    }
     public function setLastonline($lastonline){
         $this->lastonline = $lastonline;
         return $this;
@@ -72,6 +79,9 @@ class User {
     }
     public function getPassword(){
         return $this->password;
+    }
+    public function getCoins(){
+        return $this->coins;
     }
     public function getLastonline(){
         return $this->lastonline;
