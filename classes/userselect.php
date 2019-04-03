@@ -1,9 +1,7 @@
  <?php
 class UsserSelect {
     
-    /**
-     * Alle Benutzer auslesen
-     */
+/* Get all users from database */
     public static function selectUsers(){
         $retval = array();
         $sql = "SELECT * FROM `user`";
@@ -14,9 +12,7 @@ class UsserSelect {
         return $retval;
     }
 
-    /**
-     * Denn Benutzer anhand des Benutzernamens und des Passworts auslesen
-     */
+/* Get the user by his username and password */
     public static function selectUserByLogin($username, $password){
         $username = trim($username);
         $password = trim($password);
@@ -37,6 +33,4 @@ class UsserSelect {
         $retval = new User($res['id']);
         return $retval;
     }
-    
-    
 }

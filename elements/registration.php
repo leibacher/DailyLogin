@@ -1,66 +1,72 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register-submit'])){
     
-    $fehler = "";
+    $error = "";
     if(!isset($_POST['username'])){
-       $fehler = "Kein Benutzername gesetzt. ";
+       $error = "Kein Benutzername gesetzt. ";
     }
     else{
+/* Check the lenght from the username */
         $letters = strlen($_POST['username']);
         if($letters > 45 OR $letters < 3){
-            $fehler = $fehler."Username zu lang oder zu kurz. Maximal 45 Zeichen, minimal 3 Zeichen.";
+            $error = $error."Username zu lang oder zu kurz. Maximal 45 Zeichen, minimal 3 Zeichen.";
         }
     }
    
     if(!isset($_POST['password'])){
-       $fehler = $fehler."Kein Passwort gesetzt. ";
+       $error = $error."Kein Passwort gesetzt. ";
     }
     else{
         $letters = strlen($_POST['password']);
+/* Check the lenght from the password */
         if($letters > 45 OR $letters < 6){
-            $fehler = $fehler."Passwort zu lang oder zu kurz. Maximal 45 Zeichen, minimal 6 Zeichen.";
+            $error = $error."Passwort zu lang oder zu kurz. Maximal 45 Zeichen, minimal 6 Zeichen.";
         }
+/* Check if a letter a-z is included in the password*/
         if(preg_match('/[a-z]/', $_POST['password']))
         {}
         else{
-            $fehler = $fehler."Das Passwort benötigt einen Kleinbuchstaben. ";
+            $error = $error."Das Passwort benötigt einen Kleinbuchstaben. ";
         }
+/* Check if a letter A-Z is included in the password */
         if(preg_match('/[A-Z]/', $_POST['password']))
         {}
         else{
-            $fehler = $fehler."Das Passwort benötigt einen Grossbuchstaben. ";
+            $error = $error."Das Passwort benötigt einen Grossbuchstaben. ";
         }
+/* Check if a number is included in the password */
         if(preg_match('/[0-9]/', $_POST['password']))
         {}
         else{
-            $fehler = $fehler."Das Passwort benötigt eine Zahl. ";
+            $error = $error."Das Passwort benötigt eine Zahl. ";
         }   
     }
     if(!isset($_POST['password_confirmed'])){
-       $fehler = $fehler."Keine Passwort Bestätigung gesetzt. ";
+       $error = $error."Keine Passwort Bestätigung gesetzt. ";
     }
     $name = $_POST['username'];
     $password = sha1($_POST['password']);
     $password_confirmed = sha1($_POST['password_confirmed']);
     $lastonline = new DateTime();
      
-    //Prüft ob E-Mail oder Benutezrname bereits vergeben sind
+/* Check if the username is already taken */
     $sql = "SELECT name FROM user where name='$name';";
     $result = Database::getData($sql);
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             if($row["name"]==$name){
-                $fehler = $fehler."Benutzername bereits vergeben";
+                $error = $error."Benutzername bereits vergeben";
             }
         }
     }
     
-    //Prüft ob die beiden Passwörter gleich sind
+/* checks if both password entries are identical */
     if($password!=$password_confirmed){
-       $fehler = $fehler."Das Passwort ist nicht gleich. ";
+       $error = $error."Das Passwort ist nicht gleich. ";
     }
     
-    if($fehler==""){
+/* if no errors add a new user */    
+    if($error==""){
         $serie = 0;
         $user = new User();
         $user->setUsername($name)
@@ -73,10 +79,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register-submit'])){
 }?>
     <h1>Registrieren</h1>
     <?php
-if(isset($_POST['username']) AND $fehler!=""){ ?>
+if(isset($_POST['username']) AND $error!=""){ ?>
 
         <p style="color:red;">
-            <?php echo $fehler; ?>
+            <?php echo $error; ?>
         </p>
 
         <form id='register' action='?p=register' method='post' accept-charset='UTF-8' enctype="multipart/form-data" autocomplete="on">
@@ -101,7 +107,7 @@ if(isset($_POST['username']) AND $fehler!=""){ ?>
             </div>
         </form>
         <?php } 
-elseif(isset($_POST['register-submit']) AND $fehler==""){
+elseif(isset($_POST['register-submit']) AND $error==""){
     echo "Erfolgreich registriert!";
 }
 else{ ?>
@@ -128,21 +134,11 @@ else{ ?>
         </form>
         <?php } ?>
 
-
-
-
-        <script>
-            
-            
-
-
-
-
-
-
-jQuery("#register").on("blur", "input[name=username]", function() {
-    
+<script>
+/* if the cursor lose focus to the input field, it check if the username is already taken */
+jQuery("#register").on("blur", "input[name=username]", function() { 
     var username = jQuery(this).val();
+/* with a script it compare the username, with the usernames in the database */
     var url = "scripts/valid_username.php";
     jQuery.ajax({
         type: "POST",
@@ -152,21 +148,20 @@ jQuery("#register").on("blur", "input[name=username]", function() {
             username: username
         },
         success: function(data) {
-setTimeout(function() { 
-            $("#username-alert").text("");
-            if (data != "") {
+            setTimeout(function() { 
+                $("#username-alert").text("");
+                if (data != "") {
 
-                $("#username-alert").append(data);
-                $("#username-alert").css("color", "red");
-                checkusername = false;
-            } else {
-                $("#username-alert").append("Benutzername noch verfügbar");
-                $("#username-alert").css("color", "green");
-                checkusername = true;
-            }
-    }, 2000); 
-        },
-           
+                    $("#username-alert").append(data);
+                    $("#username-alert").css("color", "red");
+                    checkusername = false;
+                } else {
+                    $("#username-alert").append("Benutzername noch verfügbar");
+                    $("#username-alert").css("color", "green");
+                    checkusername = true;
+                }
+            }, 2000); 
+        },        
         error: function(xhr, ajaxOptions, thrownError) {
             $('.error').toggleClass("hidden");
             $('.error').text(xhr.responseText);
@@ -176,4 +171,4 @@ setTimeout(function() {
     });
      
 });
-        </script>
+</script>

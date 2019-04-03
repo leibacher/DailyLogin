@@ -6,9 +6,7 @@ class User {
     private $lastonline;
     private $serie;
     
-    /*
-     * Constructor
-     */
+/* Constructor */
     public function __construct($id = null) {
         if(!is_null($id)){
             $sql = "SELECT * FROM `user` WHERE `id` = " . $id;
@@ -22,11 +20,7 @@ class User {
         }
     }
     
-
-    
-    /*
-     * Insert + Update
-     */
+/* Insert + Update */
     public function save(){
         $data = array(
             'id' => $this->id,
@@ -69,9 +63,7 @@ class User {
     }
 
     
-    /*
-     * Getter
-     */
+/* Getter */
     public function getId(){
         return $this->id;
     }

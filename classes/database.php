@@ -2,9 +2,7 @@
 class Database extends mysqli {
     private static $dbConnection = null;
     
-    /*
-     * Verbinden mit Datenbank
-     */
+/* Connect with database */   
     public static function getConnexion(){
         if(self::$dbConnection == null){
             self::$dbConnection = new mysqli(DB_HOST, DB_USER, DB_PW, DB_DB);
@@ -12,16 +10,12 @@ class Database extends mysqli {
             if (self::$dbConnection->connect_errno) {
                 printf("Connect failed: %s\n", self::$dbConnection->connect_error);
                 exit();
-            }
-           
+            }      
         }
-        
         return self::$dbConnection;
     }
     
-    /*
-     * Daten auslesen aus Datenbank
-     */
+ /* Read data from database */
     public static function getData($sql){
         $query = self::getConnexion()->query($sql);
         if (!$query) {
@@ -34,9 +28,7 @@ class Database extends mysqli {
         return $retval;
     }
     
-    /*
-     * Daten speichern
-     */
+ /* Save data */
     public static function saveData($table, $data, $where){
         $sql = "";
         if(empty($where)){
@@ -74,9 +66,7 @@ class Database extends mysqli {
         return $lastInsertedId;
     }
     
-    /*
-     * Daten löschen
-     */
+/* Delete data */
     public static function deleteData($table, $where){
         $sql = "DELETE FROM " . $table . " " . $where;
         self::getData($sql);

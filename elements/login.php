@@ -1,19 +1,19 @@
 <?php
-$data = "";
+$alert = "";
 if(isset($_POST['login-submit']) && isset($_POST['login-username']) && isset($_POST['login-password'])){
     $username = $_POST['login-username'];
     $password = sha1($_POST['login-password']);
-    
+/* use a function, to get the user by his username and password */
     $user = UsserSelect::selectUserByLogin($username, $password);
     
-    // Login correct
+/* Login correct -> create a session with the id of the user */
     if(!is_null($user->getId())){
         $_SESSION['connected'] = true;
         $_SESSION['user'] = $user->getId();
         header("location: /");
     }
     else{
-        $data .= "<p style='color: rgb(255, 0, 0);'>Falsche Anmeldedaten</p>";
+        $alert .= "<p style='color: rgb(255, 0, 0);'>Falsche Anmeldedaten</p>";
     }
 }
 ?>
@@ -23,7 +23,7 @@ if(isset($_POST['login-submit']) && isset($_POST['login-username']) && isset($_P
     <label for='login-password'>Passwort:</label>
     <input type='password' name='login-password' id='password' maxlength="45" autocomplete="current-password" required/>
     <button class="button-green" type='submit' name='login-submit'>Anmelden</button>
-    <div class="login-alert"><?php echo $data ?></div>
+    <div class="login-alert"><?php echo $alert ?></div>
 </form>
 
 <p> ODER</p>

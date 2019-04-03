@@ -6,7 +6,7 @@ date_default_timezone_set('Europe/Berlin');
 //require_once 'conf/server_config.php';
 require_once 'conf/server_config.php';
 
-//Klassen einbinden
+//include Classes
 
 require_once 'classes/database.php';
 require_once 'classes/user.php';
