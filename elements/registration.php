@@ -171,4 +171,32 @@ jQuery("#register").on("blur", "input[name=username]", function() {
     });
      
 });
+/* checks if both password entries are identical while typing the first password*/   
+jQuery("#register").on("keyup", "input[name=password]", function() {
+    var pw = jQuery(this).val();
+    var pw_confirmed = jQuery("input[name=password_confirmed]").val(); 
+    if(pw==pw_confirmed){
+        $("#password-confirm-alert").text("");
+        $("#password-confirm-alert").append("Passwörter sind gleich.");
+        $("#password-confirm-alert").css("color", "green");   
+    }else{
+        $("#password-confirm-alert").text("");
+        $("#password-confirm-alert").append("Passwörter sind nicht gleich.");
+        $("#password-confirm-alert").css("color", "red");   
+    }
+});
+/* checks if both password entries are identical while typing the second password*/  
+jQuery("#register").on("keyup", "input[name=password_confirmed]", function() {
+    var pw = jQuery(this).val();
+    var pw_confirmed = jQuery("input[name=password]").val(); 
+    if(pw==pw_confirmed){
+        $("#password-confirm-alert").text("");
+        $("#password-confirm-alert").append("Passwörter sind gleich.");
+        $("#password-confirm-alert").css("color", "green");   
+    }else{
+        $("#password-confirm-alert").text("");
+        $("#password-confirm-alert").append("Passwörter sind nicht gleich.");
+        $("#password-confirm-alert").css("color", "red");   
+    }
+});   
 </script>
