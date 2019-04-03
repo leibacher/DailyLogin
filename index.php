@@ -15,6 +15,9 @@
         }
     }else{
         require_once'elements/login.php'; 
+    } 
+    if(isset( $_SESSION['user'])){
+        require_once'elements/dailybonus.php'; 
     }
 ?> 
     </body>
