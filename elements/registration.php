@@ -78,63 +78,65 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register-submit'])){
                            }
     
 }?>
-    <h1>Registrieren</h1>
-    <?php
-if(isset($_POST['username']) AND $error!=""){ ?>
+    <div class="white loginbox">
+        <h1>Registrieren</h1>
+        <?php
+    if(isset($_POST['username']) AND $error!=""){ ?>
 
-        <p style="color:red;">
-            <?php echo $error; ?>
-        </p>
+            <p style="color:red;">
+                <?php echo $error; ?>
+            </p>
 
-        <form id='register' action='?p=register' method='post' accept-charset='UTF-8' enctype="multipart/form-data" autocomplete="on">
-            <div class="register-form">
-                <label for='username'>Benutzername*:</label>
-                <input type='text' name='username' id='username' value="<?php echo $_POST['username']; ?>" maxlength="45" autocomplete="username" required/>
-                <p id="username-alert" class="register-alert"></p>
-            </div>
-            <div class="register-form">
-                <label for='password'>Passwort*:</label>
-                <input type='password' name='password' id='password' maxlength="45" autocomplete="new-password" required/>
-                <p id="password-alert" class="register-alert"></p>
-            </div>
-            <div class="register-form">
-                <label for='password'>Passwort bestätigen*:</label>
-                <input type='password' name='password_confirmed' id='password_confirmed' maxlength="45" required/>
-                <p id="password-confirm-alert" class="register-alert"></p>
-            </div>
-            <div class="register-form">
-                <label></label>
-                <button class="button-green" type='submit' name='register-submit'>Registrieren</button>
-            </div>
-        </form>
-        <?php } 
-elseif(isset($_POST['register-submit']) AND $error==""){
-    echo "Erfolgreich registriert!";
-}
-else{ ?>
-        <form id='register' action='?p=register' method='post' accept-charset='UTF-8' enctype="multipart/form-data" autocomplete="on">
-            <div class="register-form">
-                <label for='username'>Benutzername*:</label>
-                <input type='text' value="" name='username' id='username' maxlength="45" autocomplete="username" required/>
-                <p id="username-alert" class="register-alert"></p>
-            </div>
-            <div class="register-form">
-                <label for='password'>Passwort*:</label>
-                <input type='password' value="" name='password' id='password' class="firstpw" maxlength="45" autocomplete="new-password" required/>
-                <p id="password-alert" class="register-alert"></p>
-            </div>
-            <div class="register-form">
-                <label for='password'>Passwort bestätigen*:</label>
-                <input type='password' value="" name='password_confirmed' id='password_confirmed' maxlength="45" required/>
-                <p id="password-confirm-alert" class="register-alert"></p>
-            </div>
-            <div class="register-form">
-                <label></label>
-                <button class="button-green" id="button-green" type='submit' name='register-submit'>Registrieren</button>
-            </div>
-        </form>
-        <?php } ?>
+            <form id='register' action='?p=register' method='post' accept-charset='UTF-8' enctype="multipart/form-data" autocomplete="on">
+                <div class="register-form">
+                    <label for='username'>Benutzername*:</label>
+                    <input type='text' name='username' id='username' value="<?php echo $_POST['username']; ?>" maxlength="45" autocomplete="username" required/>
+                    <p id="username-alert" class="register-alert"></p>
+                </div>
+                <div class="register-form">
+                    <label for='password'>Passwort*:</label>
+                    <input type='password' name='password' id='password' maxlength="45" autocomplete="new-password" required/>
+                    <p id="password-alert" class="register-alert"></p>
+                </div>
+                <div class="register-form">
+                    <label for='password'>Passwort bestätigen*:</label>
+                    <input type='password' name='password_confirmed' id='password_confirmed' maxlength="45" required/>
+                    <p id="password-confirm-alert" class="register-alert"></p>
+                </div>
+                <div class="register-form">
+                    <label></label>
+                    <button class="button-green" type='submit' name='register-submit'>Registrieren</button>
+                </div>
+            </form>
+            <?php } 
+    elseif(isset($_POST['register-submit']) AND $error==""){
+        echo "Erfolgreich registriert!";
+    }
+    else{ ?>
 
+            <form id='register' action='?p=register' method='post' accept-charset='UTF-8' enctype="multipart/form-data" autocomplete="on">
+                <div class="register-form">
+                    <label for='username'>Benutzername*:</label>
+                    <input type='text' value="" name='username' id='username' maxlength="45" autocomplete="username" required/>
+                    <p id="username-alert" class="register-alert"></p>
+                </div>
+                <div class="register-form">
+                    <label for='password'>Passwort*:</label>
+                    <input type='password' value="" name='password' id='password' class="firstpw" maxlength="45" autocomplete="new-password" required/>
+                    <p id="password-alert" class="register-alert"></p>
+                </div>
+                <div class="register-form">
+                    <label for='password'>Passwort bestätigen*:</label>
+                    <input type='password' value="" name='password_confirmed' id='password_confirmed' maxlength="45" required/>
+                    <p id="password-confirm-alert" class="register-alert"></p>
+                </div>
+                <div class="register-form">
+                    <label></label>
+                    <button class="button-green" id="button-green" type='submit' name='register-submit'>Registrieren</button>
+                </div>
+            </form>
+            <?php } ?>
+    </div>
 <script>
 /* if the cursor lose focus to the input field, it check if the username is already taken */
 jQuery("#register").on("blur", "input[name=username]", function() { 

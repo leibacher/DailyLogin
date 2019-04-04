@@ -4,6 +4,7 @@
     <head>
     <title>Daily Reward Bonus</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <script src="js/jquery-3.3.1.min.js"></script>
     </head>
     <body>
