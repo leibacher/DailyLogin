@@ -86,5 +86,17 @@ button{
 
 /** 2.0 Registration */
 
+.loginbox .register-alert{
+    margin-top: -10px;
+    margin-bottom: 10px;
+    position: relative;
+    text-align: left;
+    font-size: 12px;
+}
+
+#password-confirm-alert, #username-alert{
+    display: none;
+}
+
 /** 3.0 Daily Bonus */
 
