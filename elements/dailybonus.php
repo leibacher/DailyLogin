@@ -5,6 +5,7 @@
         $username = $user->getUsername();
         $coins = $user->getCoins();
         $serie = $user->getSerie();
+        
         $newSerie = $serie + 1;
         $reward = array(
             "1" => 100,
@@ -21,15 +22,19 @@
         $timestamp = $timeNow + 86400;
         $nextLoginTime = date("d.m.Y", $timestamp); 
         $lastOnline = $user->getLastonline()->format("Y-m-d");
-        if($dateCheck == $lastOnline){
-            echo "serie kann weiter gehen! +100";
+        if($dateCheck == $lastOnline OR $serie==0){
+            
+            $serie = $newSerie;
+            require_once'dailyoverview.php'; 
             $user->setSerie($newSerie);
             $user->setCoins($newCoins);
             $user->save(); 
         }else if($dateCheck < $lastOnline){
             echo "Komm morgen wieder schon genommen!";
         }else{ 
-            echo "Verpasst neustart";
+            
+             $serie = 1;
+            require_once'dailyoverview.php'; 
             $newCoins = $coins + 100;
             $timeNow = date("Y-m-d");
             $user->setSerie(1);
@@ -52,55 +57,14 @@
 <?php
         }
     }
+
+
 ?>
 
 
 <a href="#modal" class="btn" id="modal_trigger"></a>
 
-        <div id="modal" class="popupContainer" style="display:none;">
-				<header class="popupHeader">
-						<span class="header_title">Tagesbonus</span>
-						<span class="modal_close"><i class="fa fa-times"></i></span>
-				</header>
-                <span class="modal_close">
-				<section class="popupBody">
-                    
-<?php
-                    $counter = 1;
-                    while($counter <= $maxSerie){
-                        if($serie==$counter){
-                            echo '<div style="background-color:yellow;" class="serie">';
-                        }else if($serie > $counter){
-                            echo '<div style="background-color:black;" class="serie">';
-                        }else{
-?>
-				    <div class="serie">
-<?php
-                        }
-                        echo '<p class="coins">+'.$reward["$counter"].'</p>';                    
-?>
-                        
-                        <p class="coins">Coins</p>
-<?php
-                        echo '<p class="tag">TAG '.$counter.'</p>';
-?>
-                    </div>  
-<?php
-                    $counter++;
-                    }          
-?>
-                    
-				</section>
-                </span>
-                <section class="popupFooter">
-                <p>Bereits seit <?php echo $serie; ?> Tag(e) online</p>
-                <div class="flexText">
-                    <p>Nächster Tagesbonus in </p>
-                    <p id="countdown"></p>
-                    <p>verfügbar</p>
-                </div>
-                </section>
-		</div>
+
 <script>
 $(document).ready(function() {
    $('#modal_trigger').click();

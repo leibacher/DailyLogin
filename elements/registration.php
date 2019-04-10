@@ -57,7 +57,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register-submit'])){
     
     $password = sha1($_POST['password']);
     $password_confirmed = sha1($_POST['password_confirmed']);
-    $lastonline = new DateTime();
+    
+
+    
+    $timeNow = date("U");
+    $Stundencheck = 260000;
+    
+    $timeNow = $timeNow - $Stundencheck;
+    $timeNow = date("d.m.Y", $timeNow);
+    $lastonline = new DateTime($timeNow);
      
 
     
@@ -112,6 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register-submit'])){
             <?php } 
     elseif(isset($_POST['register-submit']) AND $error==""){
         echo "Erfolgreich registriert!";
+        header('Location: http://801116-4.web1.fh-htwchur.ch?message=1/'); 
     }
     else{ ?>
 

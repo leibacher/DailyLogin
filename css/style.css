@@ -115,7 +115,6 @@ button{
     background: #F4F4F2;
     position: relative;
     padding: 10px 20px;
-    border-bottom: 1px solid #DDD;
     font-weight: bold;
 }
 
@@ -124,9 +123,9 @@ button{
     right: 0;
     top: 0;
     padding: 10px 15px;
-    background: #E4E4E2;
+    background: #D63C3C;
     cursor: pointer;
-    color: #aaa;
+    color: #F4F4F2;
     font-size: 16px;
 }
 
@@ -146,14 +145,38 @@ button{
     background: #F4F4F2;
 }
 
+.popupFooter p, .header_title{
+   color: #5B2EC7; 
+}
+
+
 .serie{
     padding: 0;
     margin:0;
     margin-right: 5px;
-    background-color:green;
+    background-color:#5B2EC7;
     height: 10vw;  
     width: 10vw;
     cursor: pointer;
+    background-size: cover;
+    text-align: center;
+    color: #F4F4F2;
+}
+
+.coins{
+    font-size: 40px;
+    padding: 0;
+    margin: 0;
+    margin-top:20px;
+}
+
+.coins.text{
+    margin: 0;
+}
+
+.tag{
+    margin: 0;
+    margin-top: 10px;
 }
 
 .flexText{
