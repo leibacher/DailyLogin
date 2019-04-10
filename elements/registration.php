@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register-submit'])){
     
 /* if no errors add a new user */    
     if($error==""){
-        $serie = 1;
+        $serie = 0;
         $coins = 0;
         $user = new User();
         $user->setUsername($name)
