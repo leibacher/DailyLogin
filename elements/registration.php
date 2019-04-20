@@ -194,26 +194,60 @@ jQuery("#register").on("keyup", "input[name=password]", function() {
     var pw = jQuery(this).val();
     var pw_confirmed = jQuery("input[name=password_confirmed]").val(); 
     if(pw==pw_confirmed){
+        if(errortext == ""){
         $("#password-confirm-alert").css("display", "block");
         $("#password-confirm-alert").text("");
         $("#password-confirm-alert").append("Passwörter sind gleich.");
         $("#password-confirm-alert").css("color", "green");
         $(".input_password").css("border", "green solid 2px");
-        $(".label_password").css("color", "green");  
+        $(".label_password").css("color", "green"); 
+    }}
+    else if(pw_confirmed==""){
+        
+   
     }else{
         $("#password-confirm-alert").css("display", "block");
         $("#password-confirm-alert").text("");
-        $("#password-confirm-alert").append("Passwörter sind nicht gleich.");
+        if (check==0){
+        errortext += "Passwörter sind nicht gleich.";
+        check = 1;
+        }
+        
+        $("#password-confirm-alert").append(errortext);
         $("#password-confirm-alert").css("color", "red");
         $(".input_password").css("border", "red solid 2px");
         $(".label_password").css("color", "red");  
     }
 });
-/* checks if both password entries are identical while typing the second password*/  
-jQuery("#register").on("keyup", "input[name=password_confirmed]", function() {
-    var pw = jQuery(this).val();
-    var pw_confirmed = jQuery("input[name=password]").val(); 
-    if(pw==pw_confirmed){
+      var errortext = "";  
+jQuery("#register").on("blur", "input[name=password]", function() {
+     errortext = ""; 
+    var pw_val = jQuery(this).val();
+    var pw_confirmed = jQuery("input[name=password_confirmed]").val(); 
+    /* checks if password contains a number*/  
+    var pw = document.getElementById("password");
+    var numbers = /[0-9]/g;
+    
+    if(!pw.value.match(numbers)) {  
+        errortext += "Passwort benötigt eine Zahl.";
+    }
+    /* checks if password contains a upper Case Letter*/  
+    var upperCaseLetters = /[A-Z]/g;
+    if(!pw.value.match(upperCaseLetters)) {
+        errortext += "Passwort benötigt einen Grossbuchstaben.";       
+    }
+    
+    var lowerCaseLetters = /[a-z]/g;
+    if(!pw.value.match(lowerCaseLetters)) {
+        errortext += "Passwort benötigt einen Kleinbuchstaben.";    
+    }
+    
+    if(pw.value.length < 8) {
+        errortext += "Passwort muss mindestens 8 Zeichen lang sein.";
+     }
+    if(pw_confirmed==""){       
+   
+    }else if(pw_val==pw_confirmed){
         $("#password-confirm-alert").css("display", "block");
         $("#password-confirm-alert").text("");
         $("#password-confirm-alert").append("Passwörter sind gleich.");
@@ -221,9 +255,83 @@ jQuery("#register").on("keyup", "input[name=password_confirmed]", function() {
         $(".input_password").css("border", "green solid 2px");
         $(".label_password").css("color", "green");  
     }else{
+        errortext += "Passwörter sind nicht gleich.";
+    }
+    /* show all errors */  
+    if(errortext == ""){
+        
+    }else{
         $("#password-confirm-alert").css("display", "block");
         $("#password-confirm-alert").text("");
-        $("#password-confirm-alert").append("Passwörter sind nicht gleich.");
+        $("#password-confirm-alert").append(errortext);
+        $("#password-confirm-alert").css("color", "red");
+        $(".input_password").css("border", "red solid 2px");
+        $(".label_password").css("color", "red");         
+    }
+           
+        
+});
+    
+ var check = 0;   
+/* checks if both password entries are identical while typing the second password*/  
+jQuery("#register").on("keyup", "input[name=password_confirmed]", function() {
+    var pw = jQuery(this).val();
+    var pw_confirmed = jQuery("input[name=password]").val(); 
+    
+    if(pw==pw_confirmed){
+          errortext = ""; 
+    var pw_val = jQuery(this).val();
+    var pw_confirmed = jQuery("input[name=password_confirmed]").val(); 
+    /* checks if password contains a number*/  
+    var pw = document.getElementById("password");
+    var numbers = /[0-9]/g;
+    
+    if(!pw.value.match(numbers)) {  
+        errortext += "Passwort benötigt eine Zahl.";
+    }
+    /* checks if password contains a upper Case Letter*/  
+    var upperCaseLetters = /[A-Z]/g;
+    if(!pw.value.match(upperCaseLetters)) {
+        errortext += "Passwort benötigt einen Grossbuchstaben.";       
+    }
+    
+    var lowerCaseLetters = /[a-z]/g;
+    if(!pw.value.match(lowerCaseLetters)) {
+        errortext += "Passwort benötigt einen Kleinbuchstaben.";    
+    }
+    
+    if(pw.value.length < 8) {
+        errortext += "Passwort muss mindestens 8 Zeichen lang sein.";
+     }
+        
+            $("#password-confirm-alert").css("display", "block");
+        $("#password-confirm-alert").text("");
+        $("#password-confirm-alert").append(errortext);
+        $("#password-confirm-alert").css("color", "red");
+        $(".input_password").css("border", "red solid 2px");
+        $(".label_password").css("color", "red");  
+        check = 0;
+        
+            if(errortext == ""){
+        
+    
+        $("#password-confirm-alert").css("display", "block");
+        $("#password-confirm-alert").text("");
+        $("#password-confirm-alert").append("Passwörter sind gleich.");
+        $("#password-confirm-alert").css("color", "green");
+        $(".input_password").css("border", "green solid 2px");
+        $(".label_password").css("color", "green"); 
+            }
+    }else{
+        $("#password-confirm-alert").css("display", "block");
+        $("#password-confirm-alert").text("");
+        
+        if (check==0){
+        errortext += "Passwörter sind nicht gleich.";
+        check = 1;
+        }
+        
+        $("#password-confirm-alert").append(errortext);
         $("#password-confirm-alert").css("color", "red");
         $(".input_password").css("border", "red solid 2px");
         $(".label_password").css("color", "red");  
