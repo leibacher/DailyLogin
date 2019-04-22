@@ -221,21 +221,62 @@ button{
 /** 5.0 Media Queries */
 
 @media only screen and (max-width: 600px) {
+    body{
+        overflow: hidden;
+    }
     .loginbox {
         width: 80vw;
         padding: 30px;
-        top: 4vh;
-        height: 88vh;
+        top: 9vh;
+        height: auto;
     }
     input, button{
         height: 50px;
         font-size: 1.6rem;
     }
     h1{
-        font-size:3.5rem;
+        font-size:2.5rem;
+    }
+    .header_title{
+        font-size:2.5rem;
     }
     label{
-        font-size: 1.5rem;
+        font-size: 1rem;
         padding-bottom: 10px;
     }
+    #username-alert, #password-confirm-alert{
+        font-size: 1rem;
+    }
+    .loginbox a {
+        height: 50px;
+        line-height: 50px;
+        font-size: 1.6rem;
+    }
+    #modal{
+        width: 100%;
+        left: 0;
+        margin-left:0;
+    }
+    .popupFooter p{
+        font-size: 1rem;
+    }
+    .popupFooter {
+        flex-direction: column;
+    }
+    .serie{
+        height: 18vw;
+        width: 18vw;
+    }
+    .coins,.tag{
+        margin-top: 2px;
+        font-size: 20px;
+    }
+    .minigame-button {
+        width: 40vw;
+    }
+    .minigame.container{
+        width: 100vw;
+    }
+
+    
 }
