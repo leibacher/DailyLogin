@@ -4,6 +4,7 @@
         $user = new User($_SESSION['user']);
         $username = $user->getUsername();
         $coins = $user->getCoins();
+
         $serie = $user->getSerie();
         
         $newSerie = $serie + 1;
@@ -14,7 +15,11 @@
             "4" => 600,
             "5" => 900);
         $maxSerie = 5;
+        if($newSerie > 5){
+        $newCoins = $coins + $reward[$maxSerie];    
+        }else{
         $newCoins = $coins + $reward[$newSerie];
+        }
         $serieCheck = $serie * 24 * 60 * 60;
         $timeNow = date("U");
         $timestamp = $timeNow - $serieCheck;

@@ -2,10 +2,11 @@
     $timeNow = date("U");
     $timestamp = $timeNow + 86400;
     $nextLoginTime = date("d.m.Y", $timestamp); 
+    $nextLoginTime =  "1.1.2100";
 ?>
 <script>
 // Set the date we're counting down to
-var countDownDate = new Date('"<?php echo $nextLoginTime; ?>"').getTime();
+var countDownDate = new Date('<?php echo $nextLoginTime; ?>').getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {

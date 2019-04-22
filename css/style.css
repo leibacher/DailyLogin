@@ -2,6 +2,8 @@
     1.0 Login
     2.0 Registration
     3.0 Daily Bonus
+    4.0 MiniGame
+    5.0 Media Queries
 */
 
 /** Setup */
@@ -40,6 +42,7 @@ input{
     height: 30px;
     border-radius: 5px;
     margin-bottom: 15px;
+    font-size: 16px;
 }
 
 label{
@@ -186,4 +189,53 @@ button{
 #countdown{
     padding-left: 2px;
     padding-right: 2px;
+}
+
+/** 4.0 Minigame */
+#black{
+    background-color: black;
+}
+
+#red{
+    background-color: red;
+}
+
+.minigame-button{
+    padding: 20px;
+    text-align: center;
+    color:white;
+    width: 10vw;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    line-height: 0;
+}
+
+.minigame.container{
+    display: flex;
+    flex-direction: row;
+    width: 30vw;
+    justify-content: space-around;
+}
+
+/** 5.0 Media Queries */
+
+@media only screen and (max-width: 600px) {
+    .loginbox {
+        width: 80vw;
+        padding: 30px;
+        top: 4vh;
+        height: 88vh;
+    }
+    input, button{
+        height: 50px;
+        font-size: 1.6rem;
+    }
+    h1{
+        font-size:3.5rem;
+    }
+    label{
+        font-size: 1.5rem;
+        padding-bottom: 10px;
+    }
 }
