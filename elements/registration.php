@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['register-submit'])){
 
     
     $timeNow = date("U");
-    $Stundencheck = 260000;
+    $Stundencheck = 0;
     
     $timeNow = $timeNow - $Stundencheck;
     $timeNow = date("d.m.Y", $timeNow);
