@@ -1,6 +1,22 @@
 <?php
     if(isset( $_SESSION['user'])){
         require_once'scripts/countdown.php'; 
+        require_once'conf/function.php';
+?>
+        <style>
+            body{
+                background-color: <?php echo $bgColor; ?>;
+            }
+            .serie{
+                background-color: <?php echo $blockComing; ?>;
+                color: <?php echo $fontColor; ?>;
+            }
+            .popupFooter p, .header_title {
+                color: <?php echo $fontColorOut; ?>;   
+            }
+            
+        </style>
+<?php
         $user = new User($_SESSION['user']);
         $username = $user->getUsername();
         $coins = $user->getCoins();
@@ -8,13 +24,7 @@
         $serie = $user->getSerie();
         
         $newSerie = $serie + 1;
-        $reward = array(
-            "1" => 100,
-            "2" => 200,
-            "3" => 400,
-            "4" => 600,
-            "5" => 900);
-        $maxSerie = 5;
+
         if($newSerie > 5){
         $newCoins = $coins + $reward[$maxSerie];    
         }else{

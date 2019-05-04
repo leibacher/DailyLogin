@@ -10,7 +10,7 @@
                     $counter = 1;
                     while($counter <= $maxSerie){
                         if($serie==$counter){
-                            echo '<div style="background-color:#FAC516;" class="serie">';
+                            echo '<div style="background-color: '.$blockNow.'" class="serie">';
                         }else if($serie > $counter){
                             echo '<div class="serie">';
                             echo '<div style="background-image:url(../img/bgtrue.png); background-color:rgba(0,0,0,0);position: absolute;" class="serie seriebox">';
@@ -24,7 +24,7 @@
                         echo '<p class="coins">+'.$reward["$counter"].'</p>';                    
 ?>
                         
-                        <p class="coins text">Coins</p>
+                        <p class="coins text"><?php echo $coinsName; ?></p>
 <?php
                         echo '<p class="tag">TAG '.$counter.'</p>';
 ?>
