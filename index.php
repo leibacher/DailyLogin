@@ -24,6 +24,10 @@
         require_once'elements/dailybonus.php'; 
         require_once'elements/minigame.php'; 
     }
+        
+    if(isset($_GET["loginbonus"])){
+        require_once'elements/dailyoverview.php';
+    }
 ?> 
     </body>
 </html>

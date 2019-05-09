@@ -45,7 +45,7 @@
             $user->setCoins($newCoins);
             $user->save(); 
         }else if($dateCheck < $lastOnline){
-            echo "Komm morgen wieder schon genommen!";
+            echo "<a href='?loginbonus=1'>Loginserie einsehen</a>";
         }else{ 
             
              $serie = 1;

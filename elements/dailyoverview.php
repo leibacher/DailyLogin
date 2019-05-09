@@ -9,9 +9,15 @@
 <?php
                     $counter = 1;
                     while($counter <= $maxSerie){
-                        if($serie==$counter){
+                        if($serie==$counter and isset($_GET['loginbonus'])){
                             echo '<div style="background-color: '.$blockNow.'" class="serie">';
-                        }else if($serie > $counter){
+                            echo '<div style="background-image:url(../img/bgtrue.png); background-color:rgba(0,0,0,0);position: absolute;" class="serie seriebox">';
+                            echo '</div>';
+                        }
+                        else if($serie==$counter){
+                            echo '<div style="background-color: '.$blockNow.'" class="serie">';
+                        }
+                        else if($serie > $counter){
                             echo '<div class="serie">';
                             echo '<div style="background-image:url(../img/bgtrue.png); background-color:rgba(0,0,0,0);position: absolute;" class="serie seriebox">';
                             echo '</div>';
