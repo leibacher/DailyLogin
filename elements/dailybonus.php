@@ -45,7 +45,7 @@
             $user->setCoins($newCoins);
             $user->save(); 
         }else if($dateCheck < $lastOnline){
-            echo "<a href='?loginbonus=1'>Loginserie einsehen</a>";
+            //echo "<a href='?loginbonus=1'>Loginserie einsehen</a>";
         }else{ 
             
              $serie = 1;
@@ -84,10 +84,27 @@
 $(document).ready(function() {
    $('#modal_trigger').click();
   });  
+ 
+    
+$( ".wrapperpopup" ).click(function() {
+   $('#modal_trigger').click();
+});
+ 
+$( ".popupBody" ).click(function() {
+   $('#modal_trigger').click();
+});
+ 
+    
+$( ".overlay" ).click(function() {
+   $('.modal_close').click();
+});   
+   
     
 $("#modal_trigger").leanModal({
 		top: 100,
 		overlay: 0.6,
 		closeButton: ".modal_close"
 });
+    
+    
 </script>

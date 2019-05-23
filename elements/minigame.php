@@ -42,25 +42,31 @@ if(isset($_POST["black"]) OR isset($_POST["red"])){
             } 
         }
 ?>
-<div style="background-color: <?php echo $blockComing; ?>" class="serie">
-    <p class="coindisplay">
-        <?php
-        echo $newCoins;
-        ?>
-    </p>
-</div>
+<a href='?loginbonus=1'>
+    <div style="background-color: <?php echo $blockComing; ?>" class="serie display">
+        <p>Aktuelle Coins:</p>
+        <p class="coindisplay">
+            <?php
+            echo $newCoins;
+            ?>
+        </p>
+    </div>
+</a>
 <?php
     
     }   
 }else{
 ?>
-<div style="background-color: <?php echo $blockComing; ?>" class="serie">
-    <p class="coindisplay">
-        <?php
-            echo $coins;
-        ?>
-    </p>
-</div>
+<a href='?loginbonus=1'>
+    <div style="background-color: <?php echo $blockComing; ?>" class="serie display">
+        <p>Aktuelle Coins:</p>
+        <p class="coindisplay">
+            <?php
+                echo $coins;
+            ?>
+        </p>
+    </div>
+</a>
 <?php
 }
     

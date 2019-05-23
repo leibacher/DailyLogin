@@ -1,4 +1,7 @@
-        <div id="modal" class="popupContainer" style="display:none;">
+     
+<div id="modal" class="popupContainer" style="display:none;">
+    <div class="overlay"></div> 
+                <div class="wrapperpopup">
 				<header class="popupHeader">
 						<span class="header_title">Tagesbonus</span>
 						<span class="modal_close"><i class="fa fa-times"></i></span>
@@ -53,4 +56,6 @@
                     <p>verfügbar</p>
                 </div>
                 </section>
-		</div>
+                </div>
+            </div>
+		
