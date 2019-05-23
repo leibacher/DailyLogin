@@ -37,12 +37,21 @@ label, input{
 }
 
 input{
-    width: 100%;
+    padding-left: 5%;
+    width: 94%;
     border: 2px #5B2EC7 solid;
     height: 30px;
     border-radius: 5px;
     margin-bottom: 15px;
     font-size: 16px;
+}
+.coindisplay{
+    font-size: 30px;
+    line-height: 10vw;
+}
+
+input[type=submit]{
+    cursor: pointer;
 }
 
 label{
@@ -85,6 +94,22 @@ button{
     position: relative;
     text-align: left;
     font-size: 12px;
+}
+
+.welcome{
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    color: white;
+}
+
+.welcome p{
+    line-height: 50px;
+    margin: 0;
+}
+
+#correct{
+    background: #4AC779;
 }
 
 /** 2.0 Registration */

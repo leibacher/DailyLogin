@@ -41,15 +41,27 @@ if(isset($_POST["black"]) OR isset($_POST["red"])){
                 $user->save();
             } 
         }
-    echo "<br>";
-    echo $newCoins;
-    echo "<br>";
+?>
+<div style="background-color: <?php echo $blockComing; ?>" class="serie">
+    <p class="coindisplay">
+        <?php
+        echo $newCoins;
+        ?>
+    </p>
+</div>
+<?php
     
     }   
 }else{
-    echo "<br>";
-    echo $coins;
-    echo "<br>";
+?>
+<div style="background-color: <?php echo $blockComing; ?>" class="serie">
+    <p class="coindisplay">
+        <?php
+            echo $coins;
+        ?>
+    </p>
+</div>
+<?php
 }
     
 ?>
@@ -62,6 +74,6 @@ if(isset($_POST["black"]) OR isset($_POST["red"])){
 
     <form id='minigame_black' class="minigame" action='<?php echo $_SERVER['PHP_SELF']; ?>' method='post' accept-charset='UTF-8'>
         <input type="hidden" value="1" name="black">
-        <input type="submit" value="black" id="black" class="minigame-button" name="black_submit">
+        <input type="submit" value="schwarz" id="black" class="minigame-button" name="black_submit">
     </form>
 </div>

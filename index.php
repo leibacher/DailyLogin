@@ -12,6 +12,18 @@
     </head>
     <body>
 <?php
+/* show registration message */
+
+if(isset($_GET["message"])){
+    if($_GET["message"]==1){
+?>
+        <div id="correct" class="welcome">
+            <p style="color:white;">Erfolgreiche Registration, du kannst dich anmelden!</p>
+        </div>    
+<?php
+    }
+}
+        
 /* include the correct page */
     if(isset($_GET["p"])){
         if($_GET["p"]=="register"){
@@ -31,3 +43,10 @@
 ?> 
     </body>
 </html>
+<script>
+    $(document).ready(function() {
+        setTimeout(function() {
+            $('.welcome').fadeOut('2000');
+            }, 5000);
+        });
+</script>
