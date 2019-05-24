@@ -2,7 +2,7 @@
 ![minor](https://img.shields.io/badge/minor-weblab-orange.svg)
 ![version](https://img.shields.io/badge/version-1.3.0-brightgreen.svg)
 
-Der Tagesloginbonus ist für die unterschiedlichsten Websites verwendbar. Ob Bei Spielwebsites, bei dem User durch tägliches Login mit zusätzlichen Coins belohnt werden. Oder bei Onlineshops, wo Kunden durch tägliches Beuchen mit grösseren Rabatten angelockt werden. Die anzahl Tage, Bezeichnung der Belohnung, Grösse der Belohnung, sowie diverse Farben simpel angepasst werden. 
+Der Tageslogin Bonus ist für die unterschiedlichsten Websites verwendbar. Ob Bei Spielwebsites, bei dem User durch tägliches Login mit zusätzlichen Coins belohnt werden. Oder bei Onlineshops, wo Kunden durch alltägliches Besuchen der Website mit grösseren Rabatten angelockt werden. Die Anzahl Tage, Bezeichnung der Belohnung, Grösse der Belohnung, sowie diverse Farben simpel angepasst werden.
 
 Zum Testen gibt es ein Registrations und Login Bereich.
 http://801116-4.web1.fh-htwchur.ch
@@ -12,14 +12,14 @@ http://801116-4.web1.fh-htwchur.ch
 ## Funktionen
 - Registrations Formular mit live Feedback
 - Login Formular
-- Tagesloginbonus
+- Tageslogin Bonus
   - Countdown bis zum nächsten Bonus
   - Ansicht der aktuellen Belohnung
   - Ansicht der vergangenen Belohnungen
   - Ansicht der zukünftigen Belohnungnen
   - Ansicht der aktuellen Serie
-- Anzahl coins in einem Button angezeigt
-  - Durch klicken des Button kann die aktuelle Serie angesehen werden
+- Anzahl Coins in einem Button angezeigt
+  - Durch klicken des Buttons, kann die aktuelle Serie angesehen werden
 - Kleines Minispiel (Roulette mit der Möglichkeit einen fixen Betrag auf rot oder schwarz zu setzen)
 
 ## Scripts
