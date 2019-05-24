@@ -10,7 +10,7 @@ if(isset($_POST['login-submit']) && isset($_POST['login-username']) && isset($_P
     if(!is_null($user->getId())){
         $_SESSION['connected'] = true;
         $_SESSION['user'] = $user->getId();
-        header('Location: index.php');
+        //header('Location: index.php');
     }
     else{
         $alert .= "<p style='color: rgb(255, 0, 0);'>Falsche Anmeldedaten</p>";
