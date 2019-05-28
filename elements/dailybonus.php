@@ -86,19 +86,6 @@ $(document).ready(function() {
   });  
  
     
-$( ".wrapperpopup" ).click(function() {
-   $('#modal_trigger').click();
-});
- 
-$( ".popupBody" ).click(function() {
-   $('#modal_trigger').click();
-});
- 
-    
-$( ".overlay" ).click(function() {
-   $('.modal_close').click();
-});   
-   
     
 $("#modal_trigger").leanModal({
 		top: 100,
