@@ -1,4 +1,5 @@
-     
+<!-- The div with the id modal is the full dailylogin Bonus overview-->     
+
 <div id="modal" class="popupContainer" style="display:none;">
     <div class="overlay"></div> 
                 <div class="wrapperpopup">

@@ -44,6 +44,7 @@ if(isset($_GET["message"])){
     </body>
 </html>
 <script>
+//after the registration there is a welcome. It fadeout after 5 seconds
     $(document).ready(function() {
         setTimeout(function() {
             $('.welcome').fadeOut('2000');

@@ -17,6 +17,7 @@
             
         </style>
 <?php
+//Check the date with the date from the last login
         $user = new User($_SESSION['user']);
         $username = $user->getUsername();
         $coins = $user->getCoins();
@@ -81,6 +82,8 @@
 
 
 <script>
+//Script to activate the LeanModal
+    
 $(document).ready(function() {
    $('#modal_trigger').click();
   });  
